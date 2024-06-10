@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>Create Post - MiliGram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4267B2;
+      padding: 1em;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main.create-post {
+      max-width: 600px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4267B2;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 1em auto;
+      width: calc(100% - 2em);
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      width: calc(100% - 2em);
+      height: 100px;
+      margin: 1em auto;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+      display: block;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 1em;
+      background-color: #4267B2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #365899;
+    }
+
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  font-size: 14px;
+}
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" onclick="feed()">Feed</a>
+      <a href="profile.html">Profile</a>
+      <a href="#" onclick="logOut()">Log Out</a>
+    </nav>
+  </header>
+  <main class="create-post">
+    <h2>Create New Post</h2>
+    <input type="file" id="post-image" accept="image/*">
+    <textarea id="post-caption" placeholder="Write a caption..."></textarea>
+    <button onclick="createPost()">Post</button>
+  </main>
+
+  <script>
+
+const username_profile = sessionStorage.getItem("loginusername");
+    async function createPost() {
+
+     
+      const image = document.getElementById('post-image').files[0];
+      const caption = document.getElementById('post-caption').value;
+      const username= sessionStorage.getItem("loginusername");
+      const formData = new FormData();
+      formData.append('image', image);
+      formData.append('caption', caption);
+      formData.append('username', username);
+
+      try {
+        const response = await fetch('/api/posts/create_post', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          body: formData
+        });
+
+        const data = await response.json();
+        
+        if (data.message === 'Post created successfully') {
+          window.location.href = `feed.html?script2=true`;
+          //&fusername=${username_profile}
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        alert('An error occurred while creating the post. Please try again.');
+        console.error('Error:', error);
+      }
+    }
+    function feed()
+    {
+      window.location.href=`feed.html?script1=true`
+      //&fusername=${username_profile}
+    }
+    function logOut() {
+      localStorage.removeItem('token');
+       sessionStorage.clear();
+      window.location.href = 'index.html';
+      history.pushState(null, null, '/index.html');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>Post Detail - MiliGram</title>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  font-size: 14px;
+}
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="feed.html">Feed</a>
+      <a href="profile.html">Profile</a>
+      <a href="create-post.html">Create Post</a>
+      <a href="#" onclick="logOut()">Log Out</a>
+    </nav>
+  </header>
+  <main class="post-detail">
+    <div class="post" id="post">
+      <!-- Post details will be loaded here -->
+    </div>
+    <div class="comments" id="comments">
+      <!-- Comments will be loaded here -->
+    </div>
+    <textarea id="comment-text" placeholder="Write a comment..."></textarea>
+    <button onclick="addComment()">Comment</button>
+  </main>
+
+  <script>
+    const postId = new URLSearchParams(window.location.search).get('id');
+
+    function loadPost() {
+      fetch(`/api/posts/${postId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const postContainer = document.getElementById('post');
+        postContainer.innerHTML = `
+          <img src="${data.image}" alt="Post Image">
+          <p>${data.caption}</p>
+        `;
+        loadComments();
+      });
+    }
+
+    function loadComments() {
+      fetch(`/api/posts/${postId}/comments`, {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const commentsContainer = document.getElementById('comments');
+        commentsContainer.innerHTML = '';
+        data.comments.forEach(comment => {
+          const commentElement = document.createElement('div');
+          commentElement.className = 'comment';
+          commentElement.innerHTML = `
+            <p>${comment.text}</p>
+          `;
+          commentsContainer.appendChild(commentElement);
+        });
+      });
+    }
+
+    function addComment() {
+      const text = document.getElementById('comment-text').value;
+      fetch(`/api/posts/${postId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'Comment added successfully') {
+          document.getElementById('comment-text').value = '';
+          loadComments();
+        } else {
+          alert(data.message);
+        }
+      });
+    }
+
+    function logOut() {
+      localStorage.removeItem('token');
+      window.location.href = 'index.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPost);
+  </script>
+</body>
+</html>

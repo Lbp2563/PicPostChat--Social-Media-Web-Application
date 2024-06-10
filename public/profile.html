@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>Profile - MiliGram</title>
+  <style>
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  font-size: 14px;
+}
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+
+   body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.comment-btn:hover {
+  background-color: #0056b3;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+.comment {
+  margin-top: 10px; /* Adjust as needed */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.profile {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #007bff;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #007bff;
+}
+
+.profile-bio {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-bio p {
+  font-size: 18px;
+  color: #555;
+}
+
+.profile-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.hide-comment-btn {
+  background-color: #dc3545; /* Red color for button */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  margin-top: 10px; /* Margin top to separate from other elements */
+  transition: background-color 0.3s; /* Smooth transition effect for background color */
+}
+
+.hide-comment-btn:hover {
+  background-color: #c82333; /* Darker red color on hover */
+}
+
+.post {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+}
+
+.post p {
+  margin: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+.suggestions {
+  margin-top: 20px;
+}
+
+.suggestions h4 {
+  color: #007bff;
+}
+
+.suggestions .card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.show-comment-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.show-comment-btn:hover {
+  background-color: #218838;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info div {
+  text-align: center;
+  flex: 1;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.profile-info p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Like button and like count styles */
+.like-btn {
+  background-color: #007bff; /* Initial blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and scale */
+}
+
+.like-btn.liked {
+  background-color: #e74c3c; /* Red background color when liked */
+}
+
+.like-btn:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+  transform: scale(1.05); /* Slightly increase the size on hover */
+}
+
+.like-btn:active {
+  transform: scale(0.95); /* Slightly decrease the size on click */
+}
+
+.like-count {
+  margin-left: 10px; /* Space between the like button and the like count */
+  font-weight: bold; /* Bold text for the like count */
+  color: #333; /* Darker color for the like count text */
+  vertical-align: middle; /* Align the text vertically in the middle */
+  font-size: 16px; /* Font size for the like count */
+}
+
+
+/* Additional CSS for profile.html */
+
+.profile-header h2 {
+  font-size: 32px; /* Increased font size */
+}
+
+.profile-bio {
+  margin-bottom: 30px; /* Increased margin bottom */
+}
+
+.profile-info {
+  background-color: #f0f2f5; /* Light gray background */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 15px; /* Increased padding */
+}
+
+.profile-info div {
+  text-align: center;
+  flex: 1;
+  padding: 10px; /* Increased padding */
+}
+
+.profile-info h3 {
+  font-size: 28px; /* Increased font size */
+}
+
+.profile-info p {
+  font-size: 18px; /* Increased font size */
+}
+
+/* Updated styles for like button */
+.like-btn {
+  background-color: #007bff; /* Blue background color */
+  color: white; /* White text color */
+  padding: 12px 24px; /* Increased padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.like-btn.liked {
+  background-color: #e74c3c; /* Red background color when liked */
+}
+
+.like-btn:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.like-btn:active {
+  transform: scale(0.95); /* Slightly decrease size on click */
+}
+
+/* Updated styles for like count */
+.like-count {
+  margin-left: 15px; /* Increased margin left */
+  font-weight: bold; /* Bold text */
+  color: #333; /* Dark color for text */
+  font-size: 18px; /* Increased font size */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Delete button styling */
+.comment button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Delete button hover effect */
+.comment button:hover {
+    background-color: #ff811a;
+}
+
+#changeProfileImageButton {
+  background-color: #008CBA; /* Blue */
+  border: 2px solid #008CBA;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+
+#changeProfileImageButton:hover {
+  background-color: white;
+  color: #008CBA;
+}
+
+#profileImageInput {
+  display: none;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" onclick="feed()">Feed</a>
+      <a href="create-post.html">Create Post</a>
+      <a href="bio.html">Edit Bio</a>
+      <a href="setting.html">Settings</a>
+      <a href="#" onclick="logOut()">Log Out</a>
+    </nav>
+  </header>
+  <main class="profile">
+
+
+    <div>
+      <h2 id="username"></h2>
+      <p class="bio" id="bio-text"></p>
+    </div>
+
+    <div class="profile-header">
+      <img src="#" alt="User Avatar" id="profile-avatar">
+      <h2 id="username"></h2>
+    </div>
+
+
+    <button class="delete-btn" onclick="deleteUser(this)">Delete</button>
+
+    <button id="changeProfileImageButton">Change Profile Image</button>
+<input type="file" id="profileImageInput" style="display: none;" />
+
+    <!-- <div class="profile-posts" id="profile-posts"> -->
+      <!-- User posts will be loaded here -->
+
+
+      <div class="profile-info">
+        <div>
+          <h3 id="follower-count" onclick="viewFollowersFollowing('followers')">0</h3>
+          <p>Followers</p>
+        </div>
+        <div>
+          <h3 id="following-count" onclick="viewFollowersFollowing('following')">0</h3>
+          <p>Following</p>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- <div class="profile-info">
+        <div onclick="viewFollowersFollowing('followers')">
+          <h3 id="follower-count">0</h3>
+          <p>Followers</p>
+        </div>
+        <div onclick="viewFollowersFollowing('following')">
+          <h3 id="following-count">0</h3>
+          <p>Following</p>
+        </div>
+      </div> -->
+
+      
+      <br>
+<br><br><br>
+  <!-- Main content -->
+  <main>
+    <div class="container">
+      <!-- Feed -->
+      <div class="col-9">
+        <div class="statuses">
+          <!-- Statuses will be dynamically loaded here -->
+        </div>
+        <br>
+        <!-- Posts section -->
+        <div class="posts">
+          <!-- Posts will be dynamically loaded here -->
+        </div>
+     
+   
+
+      </div>
+
+      <!-- Suggestions panel -->
+      <!-- <div class="col-3">
+        <h4>Suggestions For You</h4>
+        <div class="card">
+         
+        </div>
+      </div> -->
+    </div>
+  </main>
+
+    <!-- </div> -->
+  </main>
+
+  <script>
+    const username_profile = sessionStorage.getItem("loginusername");
+
+    
+
+   // const username3 = sessionStorage.getItem("loginusername");
+
+
+
+
+
+
+
+    async function deleteUser( button) {
+
+    
+
+       const username = sessionStorage.getItem("loginusername");
+
+       
+
+      if (!confirm('Are you sure you want to delete this user?')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/auth/delete_user_from_profile`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+           body: JSON.stringify({ username })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to delete user');
+        }
+
+        const data = await response.json();
+        console.log('User deleted successfully:', data);
+        alert('User deleted successfully');
+        logOut();
+       // window.location.reload(true);
+        
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        alert('Failed to delete user');
+      }
+    }
+
+
+    async function loadProfile() {
+      try {
+        const response = await fetch(`/api/auth/${username_profile}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+
+        const data = await response.json();
+
+        
+        document.getElementById('username').innerText = data.username || "Username";
+        document.getElementById('profile-avatar').src = data.profileImageUrl || 'assets/img/default-profile.png';
+
+        const postsContainer = document.getElementById('profile-posts');
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+      load_Profile_post()
+      load_count(username_profile)
+    }
+
+
+    async function load_count(username)
+    {
+
+      try{
+        const countResponse = await fetch(`/api/profile/fetch_count/${username}`,{
+
+            method:'GET',
+            headers:{
+              'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+          const countdata= await countResponse.json();
+        
+         
+
+    document.getElementById('follower-count').innerText = countdata.followers   
+    document.getElementById('following-count').innerText = countdata.following  
+      }
+      catch (error) {
+        console.error('Error fetching count:', error);
+      }
+    }
+
+    async function fun2(post_id,username, currentusername)
+    {
+
+
+      try {
+    const response = await fetch(`/api/posts/fetch_like/${username}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: JSON.stringify({ post_id, currentusername })
+    });
+
+    if (response.ok) {
+    const data = await response.json();
+
+    
+  return data;   
+   
+    } else {
+      console.error('Error unfollowing user:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error unfollowing user:', error);
+  }
+
+    }
+
+ async function func(post_id, username, currentusername)
+ {
+const likeButtons = document.querySelectorAll(`#like-btn-${post_id}`);
+
+
+likeButtons.forEach(button => {
+
+      (async () => {
+  try {
+
+    
+    var isliked =await  fun2(post_id,username, currentusername);
+    
+
+       if (isliked.isliked === true) 
+       {  
+       
+      //  button.textContent = isliked ? 'Like' : 'UnLike';
+        button.textContent = 'UnLike';
+        button.classList.add('liked');
+       // button.classList.remove('liked');
+      }
+
+      const likecount = document.querySelectorAll(`#like-count-${post_id}`);
+     
+      likecount.forEach(button => {
+
+        button.textContent = "Like Count: "+ isliked.size;
+      });
+
+     
+
+  } catch (error) {
+      console.error('Error:', error);
+  }
+  
+})();
+
+});
+
+ }
+
+
+
+
+    async function load_Profile_post()
+
+{
+   //  // Fetch posts and display them
+     try {
+        const postsResponse = await fetch('/api/posts/display_posts', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+
+        const postsData = await postsResponse.json();
+       
+
+     
+
+        const postsContainer = document.querySelector('.posts');
+
+
+        postsData.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
+          <img src="${post.image}" alt="Post Image" class="post-image" height="350px">
+        <p>${post.caption}</p>
+        <button class="delete-btn" onclick="deletePost('${post._id}')">Delete</button>
+        <button class="comment-btn" onclick="addComment('${post._id}')">Add Comment</button>
+        <button class="hide-comment-btn" onclick="hideComments('${post._id}')">Hide Comments</button>
+        <button class="show-comment-btn" onclick="loadComments('${post._id}')">Show Comments</button>
+        <button id="like-btn-${post._id}" class="like-btn ${post.isLiked ? 'liked' : ''}" onclick="toggleLike('${post._id}')">
+          ${post.isLiked ? 'Unlike' : 'Like'}
+        </button>
+
+         <div class="like-count" id="like-count-${post._id}">Like Count:</div> 
+
+        <div class="comment" id="comment-${post._id}"></div>
+          `;
+          
+
+         // loadComments(post._id)
+          postsContainer.appendChild(postElement);
+          func(post._id, post.username, username_profile);
+
+        });
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+      loadBio()
+    }
+
+
+
+
+
+
+
+
+    async function toggleLike(postId) {
+  try {
+
+
+    const likeButton = document.querySelector(`#like-btn-${postId}`);
+const currentUserUsername= username_profile;
+ 
+    //const likeCountElement = document.querySelector(`#like-count-${postId}`);
+    const isLiked = likeButton.classList.contains('liked');
+
+    
+
+    const response = await fetch(`/api/posts/${isLiked ? 'UnLike' : 'like'}/${postId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: JSON.stringify({  currentUserUsername })
+    });
+
+    if (response.ok) {
+     
+      const result = await response.json();
+   window.location.reload(true);
+    } else {
+      alert('Failed to toggle like');
+    }
+  } catch (error) {
+    console.error('Error toggling like:', error);
+    
+  }
+}
+
+
+
+
+    async function deletePost(postId) {
+      try {
+        const response = await fetch(`/api/posts/delete_post/${postId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+
+        if (response.ok) {
+          alert('Post deleted successfully');
+          window.location.reload(true);
+         
+          loadProfilePosts();
+        } else {
+          alert('Failed to delete post');
+        }
+      } catch (error) {
+        console.error('Error deleting post1:', error);
+        // alert('Error deleting post');
+      }
+    }
+
+
+
+    async function loadBio() {
+
+      try {
+        const response1 = await fetch(`/api/auth/${username_profile}/fetch_bio`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+
+        const data = await response1.json();
+        
+      
+        
+        document.getElementById('bio-text').innerHTML = `Bio: ${data.k}`;
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    }
+
+
+
+
+    function logOut() {
+      localStorage.removeItem('token');
+       sessionStorage.clear();
+      window.location.href = 'index.html';
+      history.pushState(null, null, '/index.html');
+    }
+
+    function feed()
+    {
+     // sessionStorage.setItem('loginusername2',loggedInUser);
+      window.location.href=`feed.html?script1=true`
+      //&fusername=${username_profile}
+    }
+
+
+
+
+
+
+    async function addComment(postId) {
+    try {
+      const comment = prompt('Enter your comment:');
+      if (!comment) return;
+
+      const response = await fetch(`/api/posts/add_comment/${postId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        body: JSON.stringify({ comment, username_profile })
+      });
+
+      if (response.ok) {
+        alert('Comment added successfully');
+        loadComments(postId);
+      } else {
+        alert('Failed to add comment');
+      }
+    } catch (error) {
+      console.error('Error adding comment:', error);
+      alert('Error adding comment');
+    }
+  }
+
+  async function loadComments(postId) {
+    try {
+        const response = await fetch(`/api/posts/get_comments/${postId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            
+        });
+
+        if (response.ok) {
+            const comments = await response.json();
+            const commentDiv = document.querySelector(`#comment-${postId}`);
+            commentDiv.innerHTML = '';  // Clear previous comments
+
+            comments.forEach(comment => {
+                const commentElement = document.createElement('p');
+                commentElement.textContent = `Comment: ${comment.text} | Person Name: ${comment.person_name} |  `
+                
+
+
+
+
+
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = async () => {
+                    try {
+                        const deleteResponse = await fetch(`/api/posts/delete_comment/${postId}/${comment._id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                            },
+                        });
+
+                        if (deleteResponse.ok) {
+
+                            commentDiv.removeChild(commentElement);
+                            console.log("Comment Deleted Successfully!!!!");
+
+                        } else {
+                            alert('Failed to delete comment');
+                        }
+                    } catch (error) {
+                        console.error('Error deleting comment:', error);
+                        alert('Error deleting comment. Please try again later.');
+                    }
+                };
+
+                commentElement.appendChild(deleteButton);
+
+                commentDiv.appendChild(commentElement);
+
+
+
+
+
+            });
+        } else {
+            alert('Failed to load comments');
+        }
+    } catch (error) {
+        console.error('Error loading comments:', error);
+        alert('No comments!!!!');
+    }
+}
+
+
+  function hideComments(postId) {
+    const commentDiv = document.querySelector(`#comment-${postId}`);
+    commentDiv.innerHTML = ''; // Clear existing comments for the specific post
+}
+
+
+function viewFollowersFollowing(type) {
+    window.location.href = `followers_following.html?type=${type}&username=${username_profile}`;
+  }
+
+
+
+
+
+
+
+  document.getElementById('changeProfileImageButton').addEventListener('click', function() {
+    document.getElementById('profileImageInput').click();
+  });
+
+  document.getElementById('profileImageInput').addEventListener('change', async function(event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+  //  formData.append('loginUsername', sessionStorage.getItem('loginUsername'));
+
+    try {
+      const response = await fetch(`/api/posts/change_profile_image/${username_profile}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('profile-avatar').src = data.imageUrl;
+       // document.getElementById('profile-avatar').src = data.profileImageUrl || 'assets/img/default-profile.png';
+
+        alert('Profile image updated successfully');
+      } else {
+        throw new Error('Failed to update profile image');
+      }
+    } catch (error) {
+      console.error('Error updating profile image:', error);
+      alert('Error updating profile image');
+    }
+  });
+
+    document.addEventListener('DOMContentLoaded', loadProfile);
+  </script>
+</body>
+</html>

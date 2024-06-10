@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>MiliGram</title>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <main class="l-main">
+    <div class="l-main__img">
+      <img src="assets/img/homepage.png" alt="Smartphones">
+    </div>
+    <div class="l-user">
+      <div class="c-panel group">
+        <img class="c-panel__img" src="PicPostChat1.gif" alt="Instagram">
+        <!-- assets/img/instagram.svg -->
+        <div class="c-panel__form">
+          <input type="email" class="c-panel__input" id="username" placeholder="Username"> <!-- Changed input type to email -->
+          <input type="password" class="c-panel__input" id="password" placeholder="Password">
+          <a href="#" class="c-btn" onclick="login()">Log In</a>
+          <span class="c-panel__span">OR</span>
+        </div>
+      </div>
+      <div class="c-signup group">
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        
+      </div>
+      <!-- <div class="c-signup group">
+        <p> Create Admin <a href="create_admin.html">Click here</a></p>
+      </div> -->
+      
+
+      <div class="c-app">
+        <p>Get the app.</p>
+        <div class="c-app__download">
+          <img src="assets/img/apple.png" alt="Apple Store">
+          <img src="assets/img/google.png" alt="Google Play">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function login() {
+      const username = document.getElementById('username').value; // Changed to get email input value
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, password }) // Updated to send email and password
+        });
+
+        const data = await response.json();
+
+        
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          
+          const loggedInUser = document.getElementById('username').value;
+
+          
+          sessionStorage.setItem('loginusername',loggedInUser);
+
+         
+        if (data.isAdmin) {
+            sessionStorage.setItem('admin_name1',username);
+                // Redirect to the Admin dashboard
+               window.location.href = `/admin.html`
+             } 
+             else
+             {
+              window.location.href =  `feed.html?script1=true`;
+              //&fusername=${loggedInUser}
+             }
+         
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

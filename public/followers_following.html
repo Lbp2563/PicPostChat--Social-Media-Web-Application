@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>Followers and Following - MiliGram</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      transition: color 0.3s;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .title {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .table-container {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .profile-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #007bff;
+    }
+
+    .action-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .action-btn:hover {
+      background-color: #0056b3;
+    }
+
+
+
+
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  font-size: 14px;
+}
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="profile.html">Profile</a>
+      <a href="#" onclick="logOut()">Log Out</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2 class="title">Followers and Following</h2>
+    <div class="table-container">
+      <h3>Followers</h3>
+      <table id="followers-table">
+        <thead>
+          <tr>
+            <th>Profile Image</th>
+            <th>Username</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Follower rows will be dynamically loaded here -->
+        </tbody>
+      </table>
+    </div>
+    <div class="table-container">
+      <h3>Following</h3>
+      <table id="following-table">
+        <thead>
+          <tr>
+            <th>Profile Image</th>
+            <th>Username</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Following rows will be dynamically loaded here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const username_profile = sessionStorage.getItem("loginusername");
+
+    
+    async function loadFollowersAndFollowing() {
+      try {
+        const response = await fetch(`/api/profile/followers_following/${username_profile}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+
+        const data = await response.json();
+
+        
+        const followersTable =  document.getElementById('followers-table').getElementsByTagName('tbody')[0] ;
+        const followingTable = document.getElementById('following-table').getElementsByTagName('tbody')[0] ;
+        followersTable.innerHTML = '';
+        followingTable.innerHTML = '';
+
+        data.followers.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><img src="${user.profileImageUrl || 'assets/img/default-profile.png'}" alt="User Avatar" class="profile-img"></td>
+            <td>${user.username}</td>
+            <td><button class="action-btn" onclick="removeFollower('${user.username}')">Remove</button></td>
+          `;
+          followersTable.appendChild(row);
+        });
+
+        data.following.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><img src="${user.profileImageUrl || 'assets/img/default-profile.png'}" alt="User Avatar" class="profile-img"></td>
+            <td>${user.username}</td>
+            <td><button class="action-btn" onclick="unfollowUser('${user.username}')">Unfollow</button></td>
+          `;
+          followingTable.appendChild(row);
+        });
+      } catch (error) {
+        console.error('Error fetching followers and following:', error);
+      }
+    }
+
+    function logOut() {
+      localStorage.removeItem('token');
+      sessionStorage.clear();
+      window.location.href = 'index.html';
+      history.pushState(null, null, '/index.html');
+    }
+
+    async function removeFollower(followerUsername) {
+      try {
+        const response = await fetch(`/api/profile/removeFollower/${followerUsername}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          body: JSON.stringify({ currentUserUsername: username_profile })
+        });
+
+        const result = await response.json();
+
+        
+        // Reload followers and following list
+        loadFollowersAndFollowing();
+      } catch (error) {
+        console.error('Error removing follower:', error);
+      }
+    }
+
+    async function unfollowUser(followingUsername) {
+      try {
+        const response = await fetch(`/api/profile/unfollowUser/${followingUsername}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          body: JSON.stringify({ currentUserUsername: username_profile })
+        });
+
+        const result = await response.json();
+
+        
+        // Reload followers and following list
+        loadFollowersAndFollowing();
+      } catch (error) {
+        console.error('Error unfollowing user:', error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadFollowersAndFollowing);
+  </script>
+</body>
+</html>

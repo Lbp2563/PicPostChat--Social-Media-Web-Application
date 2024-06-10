@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+    <style>
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+html {
+  font-size: 14px;
+}
+body {
+  background-color: #fafafa;
+  color: #262626;
+}
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+@media (max-width: 449px) {
+  .l-main {
+    display: block;
+  }
+}
+@media (max-width: 874px) {
+  .l-main .l-main__img {
+    display: none;
+  }
+}
+.l-user {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  background: #fff;
+  border: 1px solid lightgrey;
+}
+@media (max-width: 449px) {
+  .group {
+    background: inherit;
+    border: none;
+  }
+}
+.c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 0;
+}
+.c-panel .c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+.c-panel .c-panel__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+.c-panel .c-panel__form .c-btn {
+  margin-top: 14px;
+}
+.c-panel .c-panel__form .c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  padding: 9px 0 7px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.c-panel .c-panel__form .c-panel__input:nth-child(1) {
+  margin-bottom: 6px;
+}
+.c-panel .c-panel__form .c-panel__span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin: 16px 0 30px 0;
+  position: relative;
+}
+.c-panel .c-panel__form .c-panel__span::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  right: 0;
+}
+.c-panel .c-panel__form .c-panel__span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: lightgray;
+  width: 40%;
+  height: 1.5px;
+  top: 8px;
+  left: 0px;
+}
+.c-panel .c-panel__facebook {
+  color: #385185;
+  display: flex;
+}
+.c-panel .c-panel__facebook::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../img/facebook.svg);
+  margin-right: 8px;
+}
+.c-panel .c-panel__forgot {
+  margin: 20px 0 20px;
+  font-size: 12px;
+  color: #0095f6;
+}
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px 0;
+}
+.c-app p {
+  text-align: center;
+  margin: 20px 0;
+}
+.c-app .c-app__download {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.c-app .c-app__download img {
+  max-width: 140px;
+  max-height: 40px;
+}
+.c-app .c-app__download img:nth-child(2) {
+  margin-left: 8px;
+}
+.c-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+.c-signup span {
+  color: #0095f6;
+  cursor: pointer;
+}
+
+
+        /* Updated CSS for Signup Page */
+
+/* Body and Typography */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+}
+
+/* Main Layout */
+.l-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.l-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Panel Styling */
+.c-panel {
+  background: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+.c-panel__img {
+  height: 51px;
+  width: 175px;
+  margin-bottom: 30px;
+}
+
+.c-panel__form {
+  width: 250px;
+}
+
+/* Input Styling */
+.c-panel__input {
+  color: #262626;
+  background: #fafafa;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 12px 8px; /* Increased padding */
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Button Styling */
+.c-btn {
+  color: #fff;
+  font-weight: 500;
+  background: #0095f6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 12px 0; /* Increased padding */
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.c-btn:hover {
+  background-color: #0077cc; /* Darker shade on hover */
+}
+
+    </style>
+    <title>Signup</title>
+</head>
+<body>
+    <main class="l-main">
+        <div class="l-user">
+            <div class="c-panel group">
+               
+                <img class="c-panel__img" src="PicPostChat1.gif" alt="Instagram">
+                <div class="c-panel__form">
+                    <input type="text" class="c-panel__input" id="username" placeholder="Username" required>
+                    <input type="email" class="c-panel__input" id="email" placeholder="Email" required>
+                    <input type="password" class="c-panel__input" id="password" placeholder="Password" required>
+                    <input type="file" class="c-panel__input" id="profileImage" accept="image/*">
+                    <input type="text" class="c-panel__input" id="bio" placeholder="Bio">
+                    <a href="#" class="c-btn" onclick="signup()">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function signup() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const profileImage = document.getElementById('profileImage').files[0];
+            const bio = document.getElementById('bio').value;
+
+
+            var i=0;
+
+            if(!password || !username || !email)
+            {
+              i=1;
+              alert('Username, Password, Email is compulsary');
+            }
+            const formData = new FormData();
+            formData.append('username', username);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('profileImage', profileImage);
+            formData.append('bio', bio);
+
+            try {
+                const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                
+                
+                 if(response.ok)
+                 {
+                  alert('Signup successful!');
+                    window.location.href = `index.html`;
+              
+                 }
+              else{
+                if(i==0)
+                {
+                  alert("Username Exists!!!")
+
+                }
+                                //alert.log("Error in SignUp!!!");
+              }    
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
